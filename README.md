@@ -1,5 +1,5 @@
 # MySkillsApp
-Simple App ToDo List
+Simple App ToDo List using React-Native CLI
 
 
 
