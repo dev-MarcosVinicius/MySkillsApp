@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
     Text,
     StyleSheet,
@@ -11,6 +11,7 @@ import { Button } from "../components/Button";
 import { SkillCard } from "../components/SkillCard";
 
 export function Home() {
+    const [greating, setGreating] = useState('');
     const [newSkill, setNewSkill] = useState('');
     const [mySkills, setMySkills] = useState([]);
 
@@ -18,10 +19,28 @@ export function Home() {
         setMySkills(oldState => [...oldState, newSkill]);
     }
 
+    useEffect(() => {
+        const currentHour = new Date().getHours();
+
+        if (currentHour < 12) {
+            setGreating('Good Morning!');
+        } else if (currentHour >= 12 && currentHour < 18) {
+            setGreating('Good Afternoon!');
+        } else {
+            setGreating('Good Night!');
+        }
+    }, [])
+
     return(
         <SafeAreaView style={styles.container}>
 
-            <Text style={styles.title}>Welcome, Zé!</Text>
+            <Text style={styles.title}>
+                Welcome, Zé.
+            </Text>
+
+            <Text style={styles.greating}>
+                {greating}
+            </Text>
 
             <TextInput
                 style={styles.input}
@@ -66,6 +85,9 @@ const styles = StyleSheet.create({
         padding: Platform.OS === 'ios' ? 15 : 10,
         marginTop: 30,
         borderRadius: 7,
+        color: '#FFF'
+    },
+    greating: {
         color: '#FFF'
     }
 })
