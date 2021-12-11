@@ -21,14 +21,14 @@ export function SkillCard({ skill, ...rest }: SkillCardProps) {
 const styles = StyleSheet.create({
     textSkill: {
         color: '#FFF',
-        fontSize: 22,
+        fontSize: 18,
         fontWeight: 'bold',
     },
     buttonSkill: {
         backgroundColor: '#1F1E25',
-        borderRadius: 20,
-        padding: 15,
+        borderRadius: 7,
+        padding: 12,
         alignItems: 'center',
-        marginVertical: 10
+        marginVertical: 5
     }
 })
